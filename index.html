@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JUDBenin — Mode Moderne | Cotonou, Bénin</title>
+  <meta name="description" content="Boutique de mode moderne au Bénin. Wax, Kente, Bogolan, Boubou, Kaftan — livraison à Cotonou et intérieur du pays."/>
+  <meta name="keywords" content="mode moderne bénin, wax cotonou, tenue moderne, bogolan, kente, boubou, kaftan, boutique bénin, judbenin, fibre optique celtiis bénin"/>
+  <meta name="author" content="JUDBenin"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="google-site-verification" content="ZUS20rq1d2_6d6rJXKwV2FkOCZCT-G43mMWsE8cs8mY"/>
+  <link rel="canonical" href="https://jud-benin.vercel.app/"/>
+  <meta property="og:title" content="JUDBenin — Mode Moderne"/>
+  <meta property="og:description" content="Découvrez notre collection de tenues modernes. Wax, Kente, Bogolan. Livraison au Bénin."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://jud-benin.vercel.app/"/>
+  <meta property="og:locale" content="fr_BJ"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="JUDBenin — Mode Moderne"/>
+  <meta name="twitter:description" content="Boutique de mode moderne au Bénin. Wax, Kente, Bogolan. Livraison à Cotonou."/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇧🇯</text></svg>"/>
+  <link rel="manifest" href="/manifest.json"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-title" content="JUDBenin"/>
+  <meta name="theme-color" content="#c8831a"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script>
+    if('serviceWorker' in navigator){
+      window.addEventListener('load',()=>{
+        navigator.serviceWorker.register('/sw.js')
+          .then(()=>console.log('SW OK'))
+          .catch(e=>console.log('SW erreur:',e));
+      });
+    }
+  </script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --ebene:#1c1208;--terre:#6b3a1f;--ocre:#c8831a;--or:#e8a820;
+      --kente:#2d7a3a;--creme:#f9f3e8;--sable:#ede3cf;--blanc:#fffdf8;--muted:#8a7560;
+      --celtiis:#0055a4;--celtiis2:#003f80;--celtiis-light:#e8f0fb;--danger:#c0392b;
+    }
+    body{background:var(--creme);font-family:'DM Sans',sans-serif;color:var(--ebene)}
+    .nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:13px 32px;background:var(--ebene);flex-wrap:wrap;gap:10px}
+    .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:700;letter-spacing:3px;color:var(--or);display:flex;align-items:center;gap:11px}
+    .nav-logo small{display:block;font-size:0.5rem;letter-spacing:5px;color:var(--muted);font-family:'DM Sans',sans-serif;text-transform:uppercase;font-weight:400;margin-top:2px}
+    .nav-links{display:flex;gap:5px;flex-wrap:wrap}
+    .nav-tab{background:none;border:none;font-family:'DM Sans',sans-serif;font-size:0.7rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:#a09070;cursor:pointer;padding:7px 13px;border-radius:2px;transition:all 0.2s}
+    .nav-tab:hover{color:var(--or)}
+    .nav-tab.active{background:rgba(232,168,32,0.12);color:var(--or)}
+    .nav-tab.fibre-tab{color:#6ab0ff}
+    .nav-tab.fibre-tab.active{background:rgba(0,85,164,0.25);color:#90c8ff}
+    .nav-tab.admin-tab{color:#b088ff}
+    .nav-tab.admin-tab.active{background:rgba(130,80,255,0.2);color:#c8aaff}
+    .cart-btn{background:var(--ocre);color:var(--blanc);border:none;padding:9px 16px;font-family:'DM Sans',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:background 0.2s;display:flex;align-items:center;gap:8px}
+    .cart-btn:hover{background:var(--or);color:var(--ebene)}
+    .cart-count{background:var(--ebene);color:var(--or);border-radius:50%;width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700}
+    .hero{min-height:440px;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+    .hero-left{background:var(--ebene);padding:55px 46px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+    .hero-left::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;border-radius:50%;border:35px solid rgba(200,131,26,0.1)}
+    .hero-left::after{content:'';position:absolute;bottom:-50px;left:-50px;width:200px;height:200px;border-radius:50%;border:40px solid rgba(200,131,26,0.07)}
+    .hero-tag{font-size:0.66rem;letter-spacing:5px;text-transform:uppercase;color:var(--or);margin-bottom:16px;font-weight:500}
+    .hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,3.8vw,3.6rem);line-height:1.05;color:var(--blanc);margin-bottom:16px;font-weight:600}
+    .hero-title em{color:var(--or);font-style:italic}
+    .hero-sub{color:#9a8870;font-size:0.88rem;line-height:1.8;font-weight:300;margin-bottom:28px;max-width:340px}
+    .hero-actions{display:flex;gap:11px}
+    .hero-btn{background:var(--ocre);color:var(--blanc);border:none;padding:12px 28px;font-family:'DM Sans',sans-serif;font-size:0.74rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all 0.3s}
+    .hero-btn:hover{background:var(--or);color:var(--ebene)}
+    .hero-btn-sec{background:none;color:var(--or);border:1px solid var(--ocre);padding:11px 22px;font-family:'DM Sans',sans-serif;font-size:0.74rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all 0.3s}
+    .hero-btn-sec:hover{background:var(--ocre);color:var(--blanc)}
+    .hero-right{position:relative;overflow:hidden;background:var(--sable);display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:3px}
+    .hero-img{overflow:hidden}
+    .hero-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s}
+    .hero-img:hover img{transform:scale(1.05)}
+    .strip{background:var(--ocre);color:var(--blanc);display:flex;align-items:center;justify-content:center;gap:44px;padding:12px 28px;flex-wrap:wrap}
+    .strip-item{font-size:0.68rem;letter-spacing:3px;text-transform:uppercase;font-weight:500;white-space:nowrap}
+    .strip-dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.5);flex-shrink:0}
+    .filters{display:flex;align-items:center;gap:9px;padding:22px 32px 12px;flex-wrap:wrap}
+    .filter-label{font-size:0.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);font-weight:500;margin-right:4px}
+    .filter-btn{background:none;border:1px solid var(--sable);padding:7px 18px;font-family:'DM Sans',sans-serif;font-size:0.7rem;letter-spacing:1px;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:all 0.2s}
+    .filter-btn:hover{border-color:var(--ocre);color:var(--ocre)}
+    .filter-btn.active{background:var(--ebene);border-color:var(--ebene);color:var(--or)}
+    .section{padding:14px 32px 48px}
+    .section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:22px;padding-bottom:12px;border-bottom:1px solid var(--sable)}
+    .section-title{font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:600;font-style:italic}
+    .section-count{font-size:0.7rem;color:var(--muted);letter-spacing:1px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:20px}
+    .card{background:var(--blanc);cursor:pointer;transition:transform 0.3s,box-shadow 0.3s}
+    .card:hover{transform:translateY(-5px);box-shadow:0 16px 36px rgba(28,18,8,0.12)}
+    .card-img-wrap{width:100%;aspect-ratio:3/4;overflow:hidden;position:relative;background:var(--sable)}
+    .card-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s}
+    .card:hover .card-img-wrap img{transform:scale(1.06)}
+    .card-badge{position:absolute;top:11px;left:11px;background:var(--ocre);color:var(--blanc);font-size:0.58rem;letter-spacing:2px;text-transform:uppercase;padding:3px 9px;font-weight:600}
+    .card-badge.solde{background:var(--terre)}
+    .card-badge.new{background:var(--kente)}
+    .card-body{padding:13px 14px}
+    .card-cat{font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--ocre);font-weight:600;margin-bottom:4px}
+    .card-name{font-family:'Cormorant Garamond',serif;font-size:1.02rem;font-weight:600;margin-bottom:10px;line-height:1.25}
+    .card-footer{display:flex;align-items:center;justify-content:space-between}
+    .price-wrap{display:flex;align-items:baseline;gap:6px}
+    .price-old{text-decoration:line-through;color:var(--muted);font-size:0.78rem}
+    .price-main{font-size:0.92rem;font-weight:600}
+    .price-main.sale{color:var(--terre)}
+    .add-btn{background:var(--ebene);color:var(--or);border:none;width:30px;height:30px;font-size:1.1rem;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center}
+    .add-btn:hover{background:var(--ocre);color:var(--blanc)}
+    .admin-page{padding:0 0 60px}
+    .admin-hero{background:linear-gradient(135deg,#1a0a30 0%,#2d1060 100%);padding:46px 36px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .admin-hero-tag{font-size:0.65rem;letter-spacing:4px;text-transform:uppercase;color:#b088ff;font-weight:600;margin-bottom:10px}
+    .admin-hero-title{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:#c8aaff;margin-bottom:8px}
+    .admin-hero-sub{font-size:0.82rem;color:#9070c0;line-height:1.7}
+    .add-product-btn{background:#8250ff;color:#fff;border:none;padding:13px 28px;font-family:'DM Sans',sans-serif;font-size:0.76rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:background 0.2s;white-space:nowrap;display:flex;align-items:center;gap:9px}
+    .add-product-btn:hover{background:#6a30e0}
+    .admin-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;padding:28px 32px}
+    .admin-card{background:var(--blanc);border:1.5px solid var(--sable);transition:box-shadow 0.2s}
+    .admin-card:hover{box-shadow:0 8px 28px rgba(130,80,255,0.1)}
+    .admin-card-img{width:100%;aspect-ratio:4/3;overflow:hidden;background:var(--sable)}
+    .admin-card-img img{width:100%;height:100%;object-fit:cover;display:block}
+    .admin-card-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;color:#c0b090;background:var(--sable)}
+    .admin-card-body{padding:13px 14px}
+    .admin-card-name{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;margin-bottom:4px;line-height:1.2}
+    .admin-card-meta{display:flex;gap:8px;align-items:center;margin-bottom:10px;flex-wrap:wrap}
+    .admin-card-cat{font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--ocre);font-weight:600}
+    .admin-card-price{font-size:0.88rem;font-weight:700;color:var(--ebene)}
+    .admin-card-actions{display:flex;gap:8px}
+    .admin-edit-btn{flex:1;background:rgba(130,80,255,0.08);color:#8250ff;border:1px solid rgba(130,80,255,0.25);padding:7px;font-family:'DM Sans',sans-serif;font-size:0.68rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all 0.2s}
+    .admin-edit-btn:hover{background:#8250ff;color:#fff;border-color:#8250ff}
+    .admin-del-btn{background:rgba(192,57,43,0.08);color:var(--danger);border:1px solid rgba(192,57,43,0.2);padding:7px 10px;cursor:pointer;transition:all 0.2s}
+    .admin-del-btn:hover{background:var(--danger);color:#fff;border-color:var(--danger)}
+    .admin-empty{text-align:center;padding:60px 0;color:var(--muted)}
+    .admin-empty div{font-size:3rem;margin-bottom:12px}
+    .pmodal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:400;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity 0.3s}
+    .pmodal-overlay.open{opacity:1;pointer-events:all}
+    .pmodal{background:var(--blanc);width:100%;max-width:560px;max-height:92vh;overflow-y:auto;transform:translateY(28px) scale(0.97);transition:transform 0.3s cubic-bezier(0.4,0,0.2,1)}
+    .pmodal-overlay.open .pmodal{transform:translateY(0) scale(1)}
+    .pmodal-head{background:linear-gradient(135deg,#1a0a30,#2d1060);padding:22px 26px;display:flex;align-items:center;justify-content:space-between}
+    .pmodal-head h2{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:#c8aaff}
+    .pmodal-close{background:none;border:none;cursor:pointer;color:#9070c0;font-size:1.3rem}
+    .pmodal-close:hover{color:#c8aaff}
+    .pmodal-body{padding:26px}
+    .img-upload-zone{border:2px dashed var(--sable);background:var(--creme);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;cursor:pointer;transition:all 0.2s;position:relative;margin-bottom:20px;text-align:center}
+    .img-upload-zone:hover{border-color:#8250ff;background:#f0ebff}
+    .img-upload-zone input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+    .img-upload-zone .preview{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;margin-bottom:10px}
+    .img-upload-icon{font-size:2.4rem;margin-bottom:8px}
+    .img-upload-label{font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:500;margin-top:6px}
+    .img-url-sep{text-align:center;font-size:0.7rem;color:var(--muted);margin:8px 0;letter-spacing:2px}
+    .form-group{margin-bottom:16px}
+    .form-label{display:block;font-size:0.68rem;letter-spacing:1px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:6px}
+    .form-input,.form-select,.form-textarea{width:100%;border:1.5px solid var(--sable);background:var(--creme);padding:11px 13px;font-family:'DM Sans',sans-serif;font-size:0.88rem;color:var(--ebene);transition:border-color 0.2s;outline:none;appearance:none;-webkit-appearance:none}
+    .form-input:focus,.form-select:focus,.form-textarea:focus{border-color:#8250ff;background:var(--blanc)}
+    .form-input::placeholder,.form-textarea::placeholder{color:#b0a090}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .form-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M0 0l6 8 6-8z' fill='%238a7560'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;background-size:11px;padding-right:34px;cursor:pointer}
+    .badge-row{display:flex;gap:9px;flex-wrap:wrap}
+    .badge-opt{border:1.5px solid var(--sable);padding:7px 16px;font-size:0.7rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all 0.2s;color:var(--muted);background:var(--creme)}
+    .save-btn{width:100%;background:#8250ff;color:#fff;border:none;padding:15px;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:background 0.2s;margin-top:6px}
+    .save-btn:hover{background:#6a30e0}
+    .fibre-page{padding:0 0 60px}
+    .fibre-hero{background:linear-gradient(135deg,#001f4d 0%,#003f80 50%,#0055a4 100%);padding:55px 36px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;position:relative;overflow:hidden}
+    .fibre-hero::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;border:60px solid rgba(255,255,255,0.05)}
+    .fibre-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:6px 16px;font-size:0.66rem;letter-spacing:4px;text-transform:uppercase;color:#90c8ff;font-weight:600;margin-bottom:18px}
+    .fibre-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.2vw,3.2rem);font-weight:700;line-height:1.05;color:#fff;margin-bottom:14px}
+    .fibre-title span{color:#f9d342;font-style:italic}
+    .fibre-sub{color:#8ab4d8;font-size:0.88rem;line-height:1.8;margin-bottom:26px}
+    .fibre-speeds{display:flex;gap:22px;flex-wrap:wrap}
+    .fibre-speed-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:#f9d342;line-height:1}
+    .fibre-speed-label{font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:#8ab4d8;margin-top:4px}
+    .fibre-offer-card{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);padding:16px 18px;display:flex;align-items:center;gap:14px;transition:all 0.3s;cursor:pointer;margin-bottom:10px}
+    .fibre-offer-card:hover{background:rgba(255,255,255,0.12);transform:translateX(4px)}
+    .fibre-offer-card.popular{border-color:#f9d342;background:rgba(249,211,66,0.08)}
+    .fibre-offer-icon{font-size:1.7rem;flex-shrink:0}
+    .fibre-offer-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:#fff}
+    .fibre-offer-desc{font-size:0.72rem;color:#8ab4d8;margin-top:2px}
+    .fibre-offer-price{margin-left:auto;text-align:right}
+    .fibre-offer-price strong{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:#f9d342;display:block}
+    .fibre-offer-price small{font-size:0.6rem;color:#8ab4d8;letter-spacing:1px}
+    .popular-tag{background:#f9d342;color:#001f4d;font-size:0.56rem;letter-spacing:2px;font-weight:700;padding:2px 7px;text-transform:uppercase;margin-left:6px}
+    .fibre-form-section{padding:46px 36px;background:var(--celtiis-light)}
+    .fibre-form-header{text-align:center;margin-bottom:36px}
+    .fibre-form-tag{font-size:0.66rem;letter-spacing:4px;text-transform:uppercase;color:var(--celtiis);font-weight:600;margin-bottom:9px}
+    .fibre-form-title{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--ebene);margin-bottom:7px}
+    .fibre-form-sub{font-size:0.86rem;color:var(--muted);line-height:1.7}
+    .fibre-form-card{max-width:660px;margin:0 auto;background:var(--blanc);padding:36px 38px;box-shadow:0 18px 55px rgba(0,85,164,0.1);border-top:4px solid var(--celtiis)}
+    .fibre-form-section-title{font-size:0.66rem;letter-spacing:3px;text-transform:uppercase;color:var(--celtiis);font-weight:700;margin-bottom:14px;margin-top:4px}
+    .offre-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:0}
+    .offre-option{border:1.5px solid var(--sable);padding:13px 9px;text-align:center;cursor:pointer;transition:all 0.2s;background:var(--creme)}
+    .offre-option:hover{border-color:var(--celtiis)}
+    .offre-option.selected{border-color:var(--celtiis);background:var(--celtiis-light)}
+    .offre-option-name{font-weight:700;font-size:0.82rem;color:var(--celtiis);margin-bottom:2px}
+    .offre-option-speed{font-size:0.7rem;color:var(--muted);margin-bottom:5px}
+    .offre-option-price{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;color:var(--ebene)}
+    .fibre-submit-btn{width:100%;background:var(--celtiis);color:#fff;border:none;padding:15px;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:all 0.2s;margin-top:22px}
+    .fibre-submit-btn:hover{background:var(--celtiis2)}
+    .fibre-success{text-align:center;padding:46px 20px}
+    .fibre-success-icon{font-size:3.8rem;margin-bottom:14px}
+    .fibre-success-title{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:700;color:var(--celtiis);margin-bottom:9px}
+    .fibre-success-msg{font-size:0.88rem;color:var(--muted);line-height:1.8;margin-bottom:22px}
+    .fibre-success-detail{background:var(--celtiis-light);border-left:4px solid var(--celtiis);padding:14px 18px;text-align:left;font-size:0.82rem;line-height:2;margin-bottom:24px;max-width:480px;margin-left:auto;margin-right:auto}
+    .fibre-success-close{background:var(--celtiis);color:#fff;border:none;padding:12px 32px;font-family:'DM Sans',sans-serif;font-size:0.76rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;cursor:pointer}
+    .overlay{position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:200;opacity:0;pointer-events:none;transition:opacity 0.3s}
+    .overlay.open{opacity:1;pointer-events:all}
+    .cart-panel{position:fixed;top:0;right:0;bottom:0;width:390px;background:var(--blanc);z-index:201;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column}
+    .cart-panel.open{transform:translateX(0)}
+    .cart-header{display:flex;align-items:center;justify-content:space-between;padding:22px 24px 16px;background:var(--ebene)}
+    .cart-header h2{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--or)}
+    .close-btn{background:none;border:none;cursor:pointer;font-size:1.2rem;color:var(--muted);transition:color 0.2s}
+    .close-btn:hover{color:var(--or)}
+    .cart-items{flex:1;overflow-y:auto;padding:16px 22px}
+    .cart-empty{text-align:center;padding:50px 0;color:var(--muted);font-size:0.88rem}
+    .cart-empty div{font-size:2rem;margin-bottom:10px}
+    .cart-item{display:flex;gap:11px;padding:13px 0;border-bottom:1px solid var(--sable)}
+    .cart-item img{width:60px;height:76px;object-fit:cover;flex-shrink:0;background:var(--sable)}
+    .cart-item-info{flex:1}
+    .cart-item-cat{font-size:0.6rem;color:var(--ocre);letter-spacing:1px;text-transform:uppercase;margin-bottom:3px}
+    .cart-item-name{font-family:'Cormorant Garamond',serif;font-size:0.92rem;font-weight:600;margin-bottom:7px}
+    .cart-item-row{display:flex;align-items:center;justify-content:space-between}
+    .qty-ctrl{display:flex;align-items:center;gap:8px}
+    .qty-btn{background:var(--sable);border:none;width:22px;height:22px;cursor:pointer;font-size:0.95rem;color:var(--ebene);display:flex;align-items:center;justify-content:center;transition:background 0.2s}
+    .qty-btn:hover{background:var(--ocre);color:var(--blanc)}
+    .qty-num{font-size:0.85rem;font-weight:600;min-width:13px;text-align:center}
+    .cart-item-price{font-weight:600;font-size:0.88rem}
+    .remove-item{background:none;border:none;cursor:pointer;color:var(--muted);font-size:0.65rem;letter-spacing:1px;text-transform:uppercase;margin-top:4px;font-family:'DM Sans',sans-serif}
+    .remove-item:hover{color:var(--terre)}
+    .cart-footer{padding:16px 22px 22px;border-top:1px solid var(--sable)}
+    .cart-total{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
+    .cart-total span{font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+    .cart-total strong{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:700}
+    .checkout-btn{width:100%;background:var(--ocre);color:var(--blanc);border:none;padding:13px;font-family:'DM Sans',sans-serif;font-size:0.76rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:background 0.2s}
+    .checkout-btn:hover{background:var(--or);color:var(--ebene)}
+    .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:300;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s;padding:20px}
+    .modal-overlay.open{opacity:1;pointer-events:all}
+    .modal{background:var(--blanc);width:100%;max-width:510px;max-height:90vh;overflow-y:auto;transform:translateY(28px) scale(0.97);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)}
+    .modal-overlay.open .modal{transform:translateY(0) scale(1)}
+    .modal-head{background:var(--ebene);padding:20px 24px;display:flex;align-items:center;justify-content:space-between}
+    .modal-head h2{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--or)}
+    .modal-head p{font-size:0.68rem;color:var(--muted);margin-top:2px}
+    .modal-close{background:none;border:none;cursor:pointer;color:var(--muted);font-size:1.2rem}
+    .modal-close:hover{color:var(--or)}
+    .modal-body{padding:24px}
+    .order-summary{background:var(--sable);padding:13px 15px;margin-bottom:20px;border-left:4px solid var(--ocre)}
+    .order-summary-title{font-size:0.63rem;letter-spacing:3px;text-transform:uppercase;color:var(--ocre);font-weight:600;margin-bottom:7px}
+    .order-summary-item{display:flex;justify-content:space-between;font-size:0.8rem;padding:3px 0;border-bottom:1px solid var(--creme)}
+    .order-summary-item:last-child{border:none}
+    .order-summary-qty{color:var(--muted);font-size:0.73rem}
+    .order-summary-total{display:flex;justify-content:space-between;align-items:baseline;margin-top:9px;padding-top:7px;border-top:2px solid var(--ocre)}
+    .order-summary-total span{font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+    .order-summary-total strong{font-family:'Cormorant Garamond',serif;font-size:1.3rem}
+    .o-section-title{font-size:0.63rem;letter-spacing:3px;text-transform:uppercase;color:var(--terre);font-weight:700;margin-bottom:13px}
+    .submit-btn{width:100%;background:var(--ocre);color:var(--blanc);border:none;padding:14px;font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:all 0.2s;margin-top:5px}
+    .submit-btn:hover{background:var(--terre)}
+    .success-box{text-align:center;padding:34px 22px}
+    .success-icon{font-size:2.8rem;margin-bottom:12px}
+    .success-title{font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:600;color:var(--kente);margin-bottom:7px}
+    .success-msg{font-size:0.86rem;color:var(--muted);line-height:1.7;margin-bottom:18px}
+    .success-detail{background:var(--sable);padding:11px 15px;text-align:left;border-left:4px solid var(--kente);margin-bottom:18px;font-size:0.8rem;line-height:1.8}
+    .success-close{background:var(--ebene);color:var(--or);border:none;padding:11px 30px;font-family:'DM Sans',sans-serif;font-size:0.74rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;cursor:pointer}
+    .contact-section{background:var(--sable);padding:36px 32px;border-top:3px solid var(--ocre)}
+    .contact-title{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:600;font-style:italic;margin-bottom:5px}
+    .contact-sub{font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
+    .contact-grid{display:flex;gap:16px;flex-wrap:wrap}
+    .contact-card{background:var(--blanc);padding:16px 20px;display:flex;align-items:center;gap:13px;border-left:4px solid var(--ocre);flex:1;min-width:190px}
+    .contact-card.whatsapp{border-left-color:var(--kente)}
+    .contact-icon{font-size:1.7rem;flex-shrink:0}
+    .contact-label{font-size:0.6rem;letter-spacing:3px;text-transform:uppercase;font-weight:600;margin-bottom:5px}
+    .contact-label.call{color:var(--ocre)}
+    .contact-label.wa{color:var(--kente)}
+    .contact-num{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;display:block;line-height:1.5}
+    .contact-num a{color:var(--ebene);text-decoration:none}
+    .contact-num a:hover{color:var(--ocre)}
+    .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--kente);color:var(--blanc);padding:10px 22px;font-size:0.76rem;letter-spacing:1px;z-index:500;transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);pointer-events:none;font-weight:500}
+    .toast.show{transform:translateX(-50%) translateY(0)}
+    .footer{background:var(--ebene);padding:18px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+    .footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;letter-spacing:3px;color:var(--or)}
+    .footer-text{font-size:0.7rem;color:#6a5840;text-align:center}
+    @media(max-width:768px){
+      .hero{grid-template-columns:1fr}.hero-right{display:none}
+      .fibre-hero{grid-template-columns:1fr}
+      .nav{padding:12px 16px}
+      .section,.filters,.admin-grid,.fibre-form-section,.contact-section{padding-left:16px;padding-right:16px}
+      .cart-panel{width:100%}.fibre-form-card{padding:24px 18px}
+      .form-row{grid-template-columns:1fr}.offre-grid{grid-template-columns:1fr}
+    }
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"ClothingStore","name":"JUDBenin","description":"Boutique de mode moderne au Bénin","url":"https://jud-benin.vercel.app","telephone":"+22901433012770","address":{"@type":"PostalAddress","addressLocality":"Cotonou","addressCountry":"BJ"},"currenciesAccepted":"XOF","paymentAccepted":"Mobile Money, Espèces"}
+  </script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const {useState,useRef}=React;
+const PASS="JUDBenin2026!";
+const INIT=[
+  {id:1,name:"Ensemble Wax Kente Royal",cat:"Femme",price:18500,img:"https://images.unsplash.com/photo-1590735213920-68192a487bc2?w=400&q=80",badge:"Nouveau"},
+  {id:2,name:"Boubou Grand Damassé",cat:"Homme",price:25000,oldPrice:32000,img:"https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400&q=80",badge:"Solde"},
+  {id:3,name:"Robe Bogolan Terracotta",cat:"Femme",price:14500,img:"https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=400&q=80",badge:"Nouveau"},
+  {id:4,name:"Agbada Cérémonie Ivoire",cat:"Homme",price:38000,img:"https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=400&q=80"},
+  {id:5,name:"Tenue Africaine Multicolore",cat:"Femme",price:12000,oldPrice:16000,img:"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&q=80",badge:"Solde"},
+  {id:6,name:"Chemise Batik Moderne",cat:"Homme",price:8500,img:"https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&q=80"},
+  {id:7,name:"Kaftan Dentelle Dorée",cat:"Femme",price:22000,img:"https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=400&q=80",badge:"Nouveau"},
+  {id:8,name:"Ensemble Pagne Classique",cat:"Enfant",price:6500,img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80"},
+  {id:9,name:"Dashiki Premium Brodé",cat:"Homme",price:11000,oldPrice:14000,img:"https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&q=80",badge:"Solde"},
+  {id:10,name:"Robe de Soirée Wax Élite",cat:"Femme",price:29500,img:"https://images.unsplash.com/photo-1548624313-0396c75e4b1a?w=400&q=80",badge:"Nouveau"},
+];
+const OFFRES=[
+  {id:"starter",name:"Starter",speed:"10 Mbps",prix:"15 000",icon:"🚀"},
+  {id:"confort",name:"Confort",speed:"50 Mbps",prix:"25 000",icon:"⚡",popular:true},
+  {id:"premium",name:"Premium",speed:"100 Mbps",prix:"45 000",icon:"💎"},
+];
+const CATS=["Tous","Femme","Homme","Enfant"];
+const fmt=p=>new Intl.NumberFormat('fr-FR').format(p)+' FCFA';
+let nid=11;
+const ep=()=>({name:"",cat:"Femme",price:"",oldPrice:"",img:"",badge:"Aucun"});
+const ds=()=>({borderColor:"var(--danger)"});
+
+function App(){
+  const [page,setPage]=useState("boutique");
+  const [products,setProducts]=useState(INIT);
+  const [cat,setCat]=useState("Tous");
+  const [cart,setCart]=useState([]);
+  const [cartOpen,setCartOpen]=useState(false);
+  const [toast,setToast]=useState("");
+  const [orderOpen,setOrderOpen]=useState(false);
+  const [orderSuccess,setOrderSuccess]=useState(false);
+  const [logo,setLogo]=useState(null);
+  const [form,setForm]=useState({nom:"",prenom:"",telephone:"",adresse:"",quartier:"",note:""});
+  const [errors,setErrors]=useState({});
+  const [pModal,setPModal]=useState(false);
+  const [editProd,setEditProd]=useState(null);
+  const [prodForm,setProdForm]=useState(ep());
+  const [prodErrors,setProdErrors]=useState({});
+  const [preview,setPreview]=useState(null);
+  const [logged,setLogged]=useState(false);
+  const [pw,setPw]=useState("");
+  const [pwErr,setPwErr]=useState(false);
+  const [showPw,setShowPw]=useState(false);
+  const [fibreForm,setFibreForm]=useState({nom:"",prenom:"",telephone:"",email:"",adresse:"",quartier:"",ville:"Cotonou",offre:"confort",type_client:"Particulier",note:""});
+  const [fibreErrors,setFibreErrors]=useState({});
+  const [fibreSuccess,setFibreSuccess]=useState(false);
+
+  const filtered=cat==="Tous"?products:products.filter(p=>p.cat===cat);
+  const showToast=msg=>{setToast(msg);setTimeout(()=>setToast(""),2300)};
+  const addToCart=p=>{setCart(prev=>{const ex=prev.find(i=>i.id===p.id);return ex?prev.map(i=>i.id===p.id?{...i,qty:i.qty+1}:i):[...prev,{...p,qty:1}]});showToast("✓ Article ajouté au panier")};
+  const changeQty=(id,d)=>setCart(prev=>prev.map(i=>i.id===id?{...i,qty:i.qty+d}:i).filter(i=>i.qty>0));
+  const total=cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const count=cart.reduce((s,i)=>s+i.qty,0);
+  const handleLogo=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>setLogo(ev.target.result);r.readAsDataURL(f)};
+  const hf=e=>{setForm(f=>({...f,[e.target.name]:e.target.value}));setErrors(er=>({...er,[e.target.name]:""}))};
+  const val=()=>{const e={};if(!form.nom.trim())e.nom="Obligatoire";if(!form.prenom.trim())e.prenom="Obligatoire";if(!form.telephone.trim())e.telephone="Obligatoire";else if(!/^[0-9+\s]{8,}$/.test(form.telephone))e.telephone="Invalide";if(!form.adresse.trim())e.adresse="Obligatoire";return e};
+  const openOrder=()=>{setCartOpen(false);setOrderOpen(true);setOrderSuccess(false)};
+  const closeOrder=()=>{setOrderOpen(false);setOrderSuccess(false);setForm({nom:"",prenom:"",telephone:"",adresse:"",quartier:"",note:""});setErrors({})};
+  const submitOrder=()=>{const e=val();if(Object.keys(e).length>0){setErrors(e);return}setOrderSuccess(true);setCart([])};
+  const openAdd=()=>{setEditProd(null);setProdForm(ep());setPreview(null);setProdErrors({});setPModal(true)};
+  const openEdit=p=>{setEditProd(p);setProdForm({name:p.name,cat:p.cat,price:p.price,oldPrice:p.oldPrice||"",img:p.img||"",badge:p.badge||"Aucun"});setPreview(p.img||null);setProdErrors({});setPModal(true)};
+  const closePModal=()=>{setPModal(false);setProdErrors({})};
+  const handleProdImg=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{setPreview(ev.target.result);setProdForm(pf=>({...pf,img:ev.target.result}))};r.readAsDataURL(f)};
+  const valProd=()=>{const e={};if(!prodForm.name.trim())e.name="Obligatoire";if(!prodForm.price||isNaN(Number(prodForm.price)))e.price="Invalide";if(!preview&&!prodForm.img.trim())e.img="Ajoutez une image ou URL";return e};
+  const saveProd=()=>{const e=valProd();if(Object.keys(e).length>0){setProdErrors(e);return}const fi=preview||prodForm.img;if(editProd){setProducts(prev=>prev.map(p=>p.id===editProd.id?{...p,...prodForm,img:fi,price:Number(prodForm.price),oldPrice:prodForm.oldPrice?Number(prodForm.oldPrice):undefined,badge:prodForm.badge==="Aucun"?undefined:prodForm.badge}:p));showToast("✓ Produit modifié")}else{setProducts(prev=>[...prev,{id:nid++,...prodForm,img:fi,price:Number(prodForm.price),oldPrice:prodForm.oldPrice?Number(prodForm.oldPrice):undefined,badge:prodForm.badge==="Aucun"?undefined:prodForm.badge}]);showToast("✓ Produit ajouté")};closePModal()};
+  const deleteProd=id=>{setProducts(prev=>prev.filter(p=>p.id!==id));setCart(prev=>prev.filter(i=>i.id!==id));showToast("🗑 Produit supprimé")};
+  const loginAdmin=()=>{if(pw===PASS){setLogged(true);setPwErr(false);setPw("")}else{setPwErr(true);setPw("")}};
+  const logout=()=>{setLogged(false);setPage("boutique")};
+  const hfibre=e=>{setFibreForm(f=>({...f,[e.target.name]:e.target.value}));setFibreErrors(er=>({...er,[e.target.name]:""}))};
+  const valFibre=()=>{const e={};if(!fibreForm.nom.trim())e.nom="Obligatoire";if(!fibreForm.prenom.trim())e.prenom="Obligatoire";if(!fibreForm.telephone.trim())e.telephone="Obligatoire";else if(!/^[0-9+\s]{8,}$/.test(fibreForm.telephone))e.telephone="Invalide";if(!fibreForm.adresse.trim())e.adresse="Obligatoire";return e};
+  const submitFibre=()=>{const e=valFibre();if(Object.keys(e).length>0){setFibreErrors(e);return}setFibreSuccess(true)};
+  const sO=OFFRES.find(o=>o.id===fibreForm.offre);
+
+  return(
+    <div>
+      <nav className="nav">
+        <div className="nav-logo">
+          {logo?(
+            <div style={{position:"relative",display:"inline-flex",alignItems:"center",justifyContent:"center"}}>
+              <svg width="58" height="58" viewBox="0 0 64 64" style={{position:"absolute",top:0,left:0}}>
+                <circle cx="32" cy="32" r="31" fill="none" stroke="#2d7a3a" strokeWidth="5" strokeDasharray="65 135" strokeDashoffset="0"/>
+                <circle cx="32" cy="32" r="31" fill="none" stroke="#f9d342" strokeWidth="5" strokeDasharray="65 135" strokeDashoffset="-65"/>
+                <circle cx="32" cy="32" r="31" fill="none" stroke="#c8391a" strokeWidth="5" strokeDasharray="65 135" strokeDashoffset="-130"/>
+              </svg>
+              <img src={logo} alt="Logo" style={{width:"48px",height:"48px",borderRadius:"50%",objectFit:"cover",objectPosition:"center top",border:"2px solid #1c1208",zIndex:1}}/>
+            </div>
+          ):<><span style={{color:"var(--or)"}}>JUDBenin</span><small>Mode Moderne</small></>}
+          <label style={{cursor:"pointer"}}>
+            <input type="file" accept="image/*" onChange={handleLogo} style={{display:"none"}}/>
+            <span style={{fontSize:"0.6rem",color:"#6a5840",letterSpacing:"1px",background:"rgba(255,255,255,0.07)",padding:"3px 7px",borderRadius:"2px"}}>{logo?"✎":"＋ Logo"}</span>
+          </label>
+        </div>
+        <div className="nav-links">
+          <button className={"nav-tab"+(page==="boutique"?" active":"")} onClick={()=>setPage("boutique")}>🛍 Boutique</button>
+          <button className={"nav-tab fibre-tab"+(page==="fibre"?" active":"")} onClick={()=>setPage("fibre")}>🌐 Fibre Celtiis</button>
+          <button className={"nav-tab admin-tab"+(page==="admin"?" active":"")} onClick={()=>setPage("admin")}>⚙️ {logged?"Catalogue 🔓":"Catalogue 🔒"}</button>
+        </div>
+        <button className="cart-btn" onClick={()=>setCartOpen(true)}>🛍 Panier {count>0&&<span className="cart-count">{count}</span>}</button>
+      </nav>
+
+      {/* BOUTIQUE */}
+      {page==="boutique"&&(
+        <div>
+          <div className="hero">
+            <div className="hero-left">
+              <div className="hero-tag">✦ Collection Spéciale Bénin 2026</div>
+              <h1 className="hero-title">L'élégance<br/>africaine,<br/><em>réinventée</em></h1>
+              <p className="hero-sub">Des tenues modernes inspirées des tissus traditionnels du Bénin — wax, kente, bogolan — revisitées pour la femme et l'homme d'aujourd'hui.</p>
+              <div className="hero-actions">
+                <button className="hero-btn" onClick={()=>setCat("Tous")}>Voir la collection</button>
+                <button className="hero-btn-sec" onClick={()=>setCat("Femme")}>Collection Femme</button>
+              </div>
+            </div>
+            <div className="hero-right">
+              {["https://images.unsplash.com/photo-1590735213920-68192a487bc2?w=400&q=80","https://images.unsplash.com/photo-1548624313-0396c75e4b1a?w=400&q=80","https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400&q=80","https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=400&q=80"].map((src,i)=>(
+                <div className="hero-img" key={i}><img src={src} alt="mode"/></div>
+              ))}
+            </div>
+          </div>
+          <div className="strip">
+            <span className="strip-item">🇧🇯 Fabriqué au Bénin</span><span className="strip-dot"/>
+            <span className="strip-item">Livraison Cotonou & Intérieur</span><span className="strip-dot"/>
+            <span className="strip-item">Tissus 100% Authentiques</span><span className="strip-dot"/>
+            <span className="strip-item">Mobile Money accepté</span>
+          </div>
+          <div className="filters">
+            <span className="filter-label">Catégorie :</span>
+            {CATS.map(c=><button key={c} className={"filter-btn"+(cat===c?" active":"")} onClick={()=>setCat(c)}>{c}</button>)}
+          </div>
+          <div className="section">
+            <div className="section-header">
+              <h2 className="section-title">{cat==="Tous"?"Toute la collection":"Collection "+cat}</h2>
+              <span className="section-count">{filtered.length} article{filtered.length>1?"s":""}</span>
+            </div>
+            <div className="grid">
+              {filtered.map(p=>(
+                <div className="card" key={p.id}>
+                  <div className="card-img-wrap">
+                    <img src={p.img} alt={p.name}/>
+                    {p.badge&&<span className={"card-badge "+(p.badge==="Solde"?"solde":"new")}>{p.badge}</span>}
+                  </div>
+                  <div className="card-body">
+                    <div className="card-cat">{p.cat}</div>
+                    <div className="card-name">{p.name}</div>
+                    <div className="card-footer">
+                      <div className="price-wrap">
+                        {p.oldPrice&&<span className="price-old">{fmt(p.oldPrice)}</span>}
+                        <span className={"price-main"+(p.oldPrice?" sale":"")}>{fmt(p.price)}</span>
+                      </div>
+                      <button className="add-btn" onClick={()=>addToCart(p)}>+</button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ADMIN */}
+      {page==="admin"&&(
+        <div className="admin-page">
+          {!logged?(
+            <div style={{minHeight:"60vh",display:"flex",alignItems:"center",justifyContent:"center",padding:"40px 20px"}}>
+              <div style={{background:"var(--blanc)",width:"100%",maxWidth:"420px",boxShadow:"0 20px 60px rgba(130,80,255,0.15)",borderTop:"4px solid #8250ff"}}>
+                <div style={{background:"linear-gradient(135deg,#1a0a30,#2d1060)",padding:"28px 30px"}}>
+                  <div style={{fontSize:"0.65rem",letterSpacing:"4px",textTransform:"uppercase",color:"#b088ff",fontWeight:600,marginBottom:"8px"}}>🔐 Accès Propriétaire</div>
+                  <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"1.7rem",fontWeight:700,color:"#c8aaff"}}>Espace Privé</div>
+                  <div style={{fontSize:"0.78rem",color:"#9070c0",marginTop:"4px"}}>Réservé au propriétaire de JUDBenin</div>
+                </div>
+                <div style={{padding:"30px"}}>
+                  <div style={{fontSize:"0.68rem",letterSpacing:"2px",textTransform:"uppercase",color:"var(--muted)",fontWeight:600,marginBottom:"8px"}}>Mot de passe</div>
+                  <div style={{position:"relative",marginBottom:"8px"}}>
+                    <input type={showPw?"text":"password"} placeholder="Entrez votre mot de passe" value={pw}
+                      onChange={e=>{setPw(e.target.value);setPwErr(false)}}
+                      onKeyDown={e=>e.key==="Enter"&&loginAdmin()}
+                      style={{width:"100%",border:`1.5px solid ${pwErr?"var(--danger)":"var(--sable)"}`,background:"var(--creme)",padding:"12px 44px 12px 14px",fontFamily:"'DM Sans',sans-serif",fontSize:"0.9rem",color:"var(--ebene)",outline:"none"}}/>
+                    <button onClick={()=>setShowPw(s=>!s)} style={{position:"absolute",right:"12px",top:"50%",transform:"translateY(-50%)",background:"none",border:"none",cursor:"pointer",fontSize:"1.1rem",color:"var(--muted)"}}>{showPw?"🙈":"👁"}</button>
+                  </div>
+                  {pwErr&&<div style={{color:"var(--danger)",fontSize:"0.75rem",marginBottom:"12px"}}>❌ Mot de passe incorrect.</div>}
+                  <button onClick={loginAdmin} style={{width:"100%",background:"#8250ff",color:"#fff",border:"none",padding:"14px",fontFamily:"'DM Sans',sans-serif",fontSize:"0.8rem",fontWeight:700,letterSpacing:"3px",textTransform:"uppercase",cursor:"pointer",marginTop:"8px"}}>🔓 Accéder au catalogue</button>
+                  <div style={{textAlign:"center",marginTop:"18px",fontSize:"0.72rem",color:"var(--muted)"}}>🔒 Accès strictement réservé au propriétaire</div>
+                </div>
+              </div>
+            </div>
+          ):(
+            <>
+              <div className="admin-hero">
+                <div>
+                  <div className="admin-hero-tag">⚙️ Gestion du Catalogue</div>
+                  <div className="admin-hero-title">Vos Produits</div>
+                  <div className="admin-hero-sub">Modifiez prix et images librement.<br/>Les changements s'affichent instantanément.</div>
+                </div>
+                <div style={{display:"flex",gap:"12px",flexWrap:"wrap",alignItems:"center"}}>
+                  <button className="add-product-btn" onClick={openAdd}>＋ Ajouter un produit</button>
+                  <button onClick={logout} style={{background:"rgba(192,57,43,0.15)",color:"#e74c3c",border:"1px solid rgba(192,57,43,0.3)",padding:"12px 20px",fontFamily:"'DM Sans',sans-serif",fontSize:"0.72rem",fontWeight:600,letterSpacing:"2px",textTransform:"uppercase",cursor:"pointer"}}>🔒 Se déconnecter</button>
+                </div>
+              </div>
+              {products.length===0?<div className="admin-empty"><div>📦</div>Catalogue vide !</div>:(
+                <div className="admin-grid">
+                  {products.map(p=>(
+                    <div className="admin-card" key={p.id}>
+                      <div className="admin-card-img">{p.img?<img src={p.img} alt={p.name}/>:<div className="admin-card-img-placeholder">👗</div>}</div>
+                      <div className="admin-card-body">
+                        <div className="admin-card-name">{p.name}</div>
+                        <div className="admin-card-meta">
+                          <span className="admin-card-cat">{p.cat}</span>
+                          {p.badge&&<span style={{fontSize:"0.6rem",background:p.badge==="Solde"?"var(--terre)":"var(--kente)",color:"#fff",padding:"2px 7px",fontWeight:600}}>{p.badge}</span>}
+                          <span className="admin-card-price">{fmt(p.price)}</span>
+                        </div>
+                        <div className="admin-card-actions">
+                          <button className="admin-edit-btn" onClick={()=>openEdit(p)}>✎ Modifier</button>
+                          <button className="admin-del-btn" onClick={()=>deleteProd(p.id)}>🗑</button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </>
+          )}
+        </div>
+      )}
+
+      {/* FIBRE */}
+      {page==="fibre"&&(
+        <div className="fibre-page">
+          <div className="fibre-hero">
+            <div>
+              <div className="fibre-badge">🌐 Partenaire Celtiis Bénin</div>
+              <h1 className="fibre-title">Internet <span>Fibre Optique</span><br/>Ultra-Rapide</h1>
+              <p className="fibre-sub">Profitez d'une connexion stable et ultra-rapide avec Celtiis au Bénin. Faites votre demande en ligne et soyez connecté en 48h.</p>
+              <div className="fibre-speeds">
+                <div><div className="fibre-speed-num">100</div><div className="fibre-speed-label">Mbps max</div></div>
+                <div><div className="fibre-speed-num">48h</div><div className="fibre-speed-label">Installation</div></div>
+                <div><div className="fibre-speed-num">24/7</div><div className="fibre-speed-label">Support</div></div>
+              </div>
+            </div>
+            <div>
+              {OFFRES.map(o=>(
+                <div key={o.id} className={"fibre-offer-card"+(o.popular?" popular":"")} onClick={()=>setFibreForm(f=>({...f,offre:o.id}))}>
+                  <div className="fibre-offer-icon">{o.icon}</div>
+                  <div><div className="fibre-offer-name">{o.name}{o.popular&&<span className="popular-tag">Populaire</span>}</div><div className="fibre-offer-desc">{o.speed}</div></div>
+                  <div className="fibre-offer-price"><strong>{o.prix} FCFA</strong><small>/mois</small></div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="fibre-form-section">
+            <div className="fibre-form-header">
+              <div className="fibre-form-tag">📋 Formulaire de Demande</div>
+              <div className="fibre-form-title">Souscrire à la Fibre Celtiis</div>
+              <div className="fibre-form-sub">Remplissez le formulaire et notre équipe vous contactera sous 24h.</div>
+            </div>
+            <div className="fibre-form-card">
+              {!fibreSuccess?(
+                <div>
+                  <div className="fibre-form-section-title">📶 Choisissez votre offre</div>
+                  <div className="offre-grid" style={{marginBottom:"22px"}}>
+                    {OFFRES.map(o=>(
+                      <div key={o.id} className={"offre-option"+(fibreForm.offre===o.id?" selected":"")} onClick={()=>setFibreForm(f=>({...f,offre:o.id}))}>
+                        <div style={{fontSize:"1.4rem",marginBottom:"5px"}}>{o.icon}</div>
+                        <div className="offre-option-name">{o.name}</div>
+                        <div className="offre-option-speed">{o.speed}</div>
+                        <div className="offre-option-price">{o.prix} FCFA</div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="fibre-form-section-title">👤 Informations personnelles</div>
+                  <div className="form-row">
+                    <div className="form-group"><label className="form-label">Nom {fibreErrors.nom&&<span style={{color:"var(--danger)",fontWeight:400}}>— {fibreErrors.nom}</span>}</label><input className="form-input" name="nom" placeholder="Ex: Adjovi" value={fibreForm.nom} onChange={hfibre} style={fibreErrors.nom?ds():{}} /></div>
+                    <div className="form-group"><label className="form-label">Prénom {fibreErrors.prenom&&<span style={{color:"var(--danger)",fontWeight:400}}>— {fibreErrors.prenom}</span>}</label><input className="form-input" name="prenom" placeholder="Ex: Kokou" value={fibreForm.prenom} onChange={hfibre} style={fibreErrors.prenom?ds():{}} /></div>
+                  </div>
+                  <div className="form-row">
+                    <div className="form-group"><label className="form-label">📞 Téléphone {fibreErrors.telephone&&<span style={{color:"var(--danger)",fontWeight:400}}>— {fibreErrors.telephone}</span>}</label><input className="form-input" name="telephone" type="tel" placeholder="+229 01 XX XX XX" value={fibreForm.telephone} onChange={hfibre} style={fibreErrors.telephone?ds():{}} /></div>
+                    <div className="form-group"><label className="form-label">✉️ Email (optionnel)</label><input className="form-input" name="email" type="email" placeholder="exemple@gmail.com" value={fibreForm.email} onChange={hfibre}/></div>
+                  </div>
+                  <div className="form-group"><label className="form-label">Type de client</label><select className="form-select" name="type_client" value={fibreForm.type_client} onChange={hfibre}><option>Particulier</option><option>Entreprise</option><option>Administration</option></select></div>
+                  <div className="fibre-form-section-title" style={{marginTop:"18px"}}>🏠 Adresse d'installation</div>
+                  <div className="form-group"><label className="form-label">Adresse {fibreErrors.adresse&&<span style={{color:"var(--danger)",fontWeight:400}}>— {fibreErrors.adresse}</span>}</label><input className="form-input" name="adresse" placeholder="Ex: Rue des Cocotiers, N°12" value={fibreForm.adresse} onChange={hfibre} style={fibreErrors.adresse?ds():{}} /></div>
+                  <div className="form-row">
+                    <div className="form-group"><label className="form-label">Quartier</label><input className="form-input" name="quartier" placeholder="Ex: Cadjehoun" value={fibreForm.quartier} onChange={hfibre}/></div>
+                    <div className="form-group"><label className="form-label">Ville</label><select className="form-select" name="ville" value={fibreForm.ville} onChange={hfibre}><option>Cotonou</option><option>Porto-Novo</option><option>Parakou</option><option>Abomey-Calavi</option><option>Autre</option></select></div>
+                  </div>
+                  <div className="form-group"><label className="form-label">Note (optionnel)</label><textarea className="form-textarea" name="note" placeholder="Informations complémentaires..." value={fibreForm.note} onChange={hfibre}/></div>
+                  <button className="fibre-submit-btn" onClick={submitFibre}>🌐 Envoyer ma demande de connexion</button>
+                </div>
+              ):(
+                <div className="fibre-success">
+                  <div className="fibre-success-icon">🎉</div>
+                  <div className="fibre-success-title">Demande envoyée !</div>
+                  <p className="fibre-success-msg">Merci <strong>{fibreForm.prenom} {fibreForm.nom}</strong> !<br/>Notre équipe Celtiis vous contactera sous 24h.</p>
+                  <div className="fibre-success-detail">📶 Offre : <strong>{sO&&sO.name} — {sO&&sO.speed}</strong><br/>📞 Contact : <strong>{fibreForm.telephone}</strong><br/>🏠 Adresse : <strong>{fibreForm.adresse}{fibreForm.quartier?", "+fibreForm.quartier:""}, {fibreForm.ville}</strong></div>
+                  <button className="fibre-success-close" onClick={()=>setFibreSuccess(false)}>Nouvelle demande</button>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* PRODUCT MODAL */}
+      <div className={"pmodal-overlay"+(pModal?" open":"")} onClick={e=>e.target===e.currentTarget&&closePModal()}>
+        <div className="pmodal">
+          <div className="pmodal-head"><h2>{editProd?"Modifier le produit":"Ajouter un produit"}</h2><button className="pmodal-close" onClick={closePModal}>✕</button></div>
+          <div className="pmodal-body">
+            <div className="form-label">Photo {prodErrors.img&&<span style={{color:"var(--danger)",fontWeight:400}}>— {prodErrors.img}</span>}</div>
+            <div className="img-upload-zone" style={prodErrors.img?ds():{}}>
+              <input type="file" accept="image/*" onChange={handleProdImg}/>
+              {preview?<img className="preview" src={preview} alt="preview"/>:<><div className="img-upload-icon">📷</div><div className="img-upload-label">Cliquer pour uploader une photo</div></>}
+            </div>
+            <div className="img-url-sep">— ou entrez une URL —</div>
+            <div className="form-group"><input className="form-input" placeholder="https://..." value={prodForm.img&&prodForm.img.startsWith("data:")?"":(prodForm.img||"")} onChange={e=>{setProdForm(f=>({...f,img:e.target.value}));setPreview(e.target.value||null);setProdErrors(er=>({...er,img:""}))}}/></div>
+            <div className="form-group"><label className="form-label">Nom {prodErrors.name&&<span style={{color:"var(--danger)",fontWeight:400}}>— {prodErrors.name}</span>}</label><input className="form-input" placeholder="Ex: Boubou Grand Damassé" value={prodForm.name} onChange={e=>{setProdForm(f=>({...f,name:e.target.value}));setProdErrors(er=>({...er,name:""}))}} style={prodErrors.name?ds():{}} /></div>
+            <div className="form-row">
+              <div className="form-group"><label className="form-label">Catégorie</label><select className="form-select" value={prodForm.cat} onChange={e=>setProdForm(f=>({...f,cat:e.target.value}))}><option>Femme</option><option>Homme</option><option>Enfant</option></select></div>
+              <div className="form-group"><label className="form-label">Badge</label><div className="badge-row">{["Nouveau","Solde","Aucun"].map(b=>(<div key={b} className="badge-opt" style={prodForm.badge===b?{background:b==="Nouveau"?"var(--kente)":b==="Solde"?"var(--terre)":"var(--ebene)",color:b==="Aucun"?"var(--or)":"#fff",borderColor:"transparent"}:{}} onClick={()=>setProdForm(f=>({...f,badge:b}))}>{b}</div>))}</div></div>
+            </div>
+            <div className="form-row">
+              <div className="form-group"><label className="form-label">Prix FCFA {prodErrors.price&&<span style={{color:"var(--danger)",fontWeight:400}}>— {prodErrors.price}</span>}</label><input className="form-input" type="number" placeholder="Ex: 15000" value={prodForm.price} onChange={e=>{setProdForm(f=>({...f,price:e.target.value}));setProdErrors(er=>({...er,price:""}))}} style={prodErrors.price?ds():{}} /></div>
+              <div className="form-group"><label className="form-label">Ancien prix (optionnel)</label><input className="form-input" type="number" placeholder="Ex: 20000" value={prodForm.oldPrice} onChange={e=>setProdForm(f=>({...f,oldPrice:e.target.value}))}/></div>
+            </div>
+            <button className="save-btn" onClick={saveProd}>{editProd?"✓ Enregistrer les modifications":"＋ Ajouter au catalogue"}</button>
+          </div>
+        </div>
+      </div>
+
+      {/* CART */}
+      <div className={"overlay"+(cartOpen?" open":"")} onClick={()=>setCartOpen(false)}/>
+      <div className={"cart-panel"+(cartOpen?" open":"")}>
+        <div className="cart-header"><h2>Mon Panier</h2><button className="close-btn" onClick={()=>setCartOpen(false)}>✕</button></div>
+        <div className="cart-items">
+          {cart.length===0?<div className="cart-empty"><div>🛍</div>Votre panier est vide.</div>
+          :cart.map(item=>(
+            <div className="cart-item" key={item.id}>
+              <img src={item.img} alt={item.name}/>
+              <div className="cart-item-info">
+                <div className="cart-item-cat">{item.cat}</div>
+                <div className="cart-item-name">{item.name}</div>
+                <div className="cart-item-row">
+                  <div className="qty-ctrl">
+                    <button className="qty-btn" onClick={()=>changeQty(item.id,-1)}>−</button>
+                    <span className="qty-num">{item.qty}</span>
+                    <button className="qty-btn" onClick={()=>changeQty(item.id,1)}>+</button>
+                  </div>
+                  <span className="cart-item-price">{fmt(item.price*item.qty)}</span>
+                </div>
+                <button className="remove-item" onClick={()=>changeQty(item.id,-item.qty)}>Supprimer</button>
+              </div>
+            </div>
+          ))}
+        </div>
+        {cart.length>0&&(
+          <div className="cart-footer">
+            <div className="cart-total"><span>Total</span><strong>{fmt(total)}</strong></div>
+            <button className="checkout-btn" onClick={openOrder}>Commander maintenant →</button>
+          </div>
+        )}
+      </div>
+
+      {/* ORDER MODAL */}
+      <div className={"modal-overlay"+(orderOpen?" open":"")} onClick={e=>e.target===e.currentTarget&&closeOrder()}>
+        <div className="modal">
+          {!orderSuccess?(
+            <div>
+              <div className="modal-head"><div><h2>Formulaire de Commande</h2><p>Remplissez vos informations pour finaliser</p></div><button className="modal-close" onClick={closeOrder}>✕</button></div>
+              <div className="modal-body">
+                <div className="order-summary">
+                  <div className="order-summary-title">📦 Récapitulatif</div>
+                  {cart.map(item=>(<div className="order-summary-item" key={item.id}><span>{item.name}</span><span className="order-summary-qty">x{item.qty}</span><span style={{fontWeight:600}}>{fmt(item.price*item.qty)}</span></div>))}
+                  <div className="order-summary-total"><span>Total</span><strong>{fmt(total)}</strong></div>
+                </div>
+                <div className="o-section-title">👤 Informations personnelles</div>
+                <div className="form-row">
+                  <div className="form-group"><label className="form-label">Nom {errors.nom&&<span style={{color:"var(--danger)",fontWeight:400}}>— {errors.nom}</span>}</label><input className="form-input" name="nom" placeholder="Ex: Koffi" value={form.nom} onChange={hf} style={errors.nom?ds():{}} /></div>
+                  <div className="form-group"><label className="form-label">Prénom {errors.prenom&&<span style={{color:"var(--danger)",fontWeight:400}}>— {errors.prenom}</span>}</label><input className="form-input" name="prenom" placeholder="Ex: Ama" value={form.prenom} onChange={hf} style={errors.prenom?ds():{}} /></div>
+                </div>
+                <div className="form-group"><label className="form-label">📞 Téléphone {errors.telephone&&<span style={{color:"var(--danger)",fontWeight:400}}>— {errors.telephone}</span>}</label><input className="form-input" name="telephone" type="tel" placeholder="+229 01 XX XX XX" value={form.telephone} onChange={hf} style={errors.telephone?ds():{}} /></div>
+                <div className="o-section-title" style={{marginTop:"16px"}}>🏠 Adresse de livraison</div>
+                <div className="form-group"><label className="form-label">Adresse {errors.adresse&&<span style={{color:"var(--danger)",fontWeight:400}}>— {errors.adresse}</span>}</label><input className="form-input" name="adresse" placeholder="Ex: Rue des Cocotiers, N°12" value={form.adresse} onChange={hf} style={errors.adresse?ds():{}} /></div>
+                <div className="form-group"><label className="form-label">Quartier / Ville</label><input className="form-input" name="quartier" placeholder="Ex: Cadjehoun, Cotonou" value={form.quartier} onChange={hf}/></div>
+                <div className="form-group"><label className="form-label">Note (optionnel)</label><textarea className="form-textarea" name="note" placeholder="Instructions, taille souhaitée..." value={form.note} onChange={hf}/></div>
+                <button className="submit-btn" onClick={submitOrder}>✓ Confirmer ma commande</button>
+              </div>
+            </div>
+          ):(
+            <div className="success-box">
+              <div className="success-icon">🎉</div>
+              <div className="success-title">Commande confirmée !</div>
+              <p className="success-msg">Merci <strong>{form.prenom} {form.nom}</strong> !<br/>Nous vous contacterons très bientôt.</p>
+              <div className="success-detail">📞 Au : <strong>{form.telephone}</strong><br/>🏠 Livraison : <strong>{form.adresse}{form.quartier?", "+form.quartier:""}</strong><br/>💰 Total : <strong>{fmt(total)}</strong></div>
+              <button className="success-close" onClick={closeOrder}>Retour à la boutique</button>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* CONTACT */}
+      <div className="contact-section">
+        <div className="contact-title">Contactez-nous</div>
+        <div className="contact-sub">Disponibles pour vous aider</div>
+        <div className="contact-grid">
+          <div className="contact-card">
+            <div className="contact-icon">📞</div>
+            <div><div className="contact-label call">Appel téléphonique</div><span className="contact-num"><a href="tel:+22901433012770">+229 01 43 30 12 77</a></span></div>
+          </div>
+          <div className="contact-card whatsapp">
+            <div className="contact-icon">💬</div>
+            <div>
+              <div className="contact-label wa">WhatsApp</div>
+              <span className="contact-num"><a href="https://wa.me/22901482242470" target="_blank" rel="noreferrer">+229 01 48 22 42 47</a></span>
+              <span className="contact-num"><a href="https://wa.me/22901523786270" target="_blank" rel="noreferrer">+229 01 52 37 86 27</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer className="footer">
+        <div className="footer-logo">JUDBenin</div>
+        <div className="footer-text">© 2026 JUDBenin · Cotonou, Bénin · Tous droits réservés</div>
+        <span style={{fontSize:"1.1rem"}}>🇧🇯</span>
+      </footer>
+      <div className={"toast"+(toast?" show":"")}>{toast}</div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
+</script>
+</body>
+</html>
