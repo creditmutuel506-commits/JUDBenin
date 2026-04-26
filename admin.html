@@ -260,9 +260,9 @@
         <table>
           <thead>
             <tr>
-              <th>Client</th>
-              <th>Produit</th>
-              <th>Contact</th>
+              <th>Client & Adresse</th>
+              <th>Produits commandés</th>
+              <th>Total</th>
               <th>Date</th>
               <th>Statut</th>
               <th>Actions</th>
@@ -410,19 +410,40 @@
         if (d.statut === 'nouveau') news++;
         if (d.statut === 'traite') done++;
 
-        const date = d.date?.toDate ? d.date.toDate().toLocaleDateString('fr-FR') : '—';
+        const date = d.date?.toDate ? d.date.toDate().toLocaleDateString('fr-FR', {day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}) : '—';
         const badge = d.statut === 'traite'
           ? '<span class="badge badge-done">Traité</span>'
           : d.statut === 'annule'
           ? '<span class="badge badge-cancel">Annulé</span>'
           : '<span class="badge badge-new">Nouveau</span>';
 
+        // Photos des produits commandés
+        const articles = d.articles || [];
+        const photosHtml = articles.length > 0
+          ? articles.map(a => `
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;background:#242424;padding:6px 8px;border-radius:6px;">
+                ${a.img ? `<img src="${a.img}" style="width:40px;height:50px;object-fit:cover;border-radius:4px;flex-shrink:0;" onerror="this.style.display='none'"/>` : '<div style="width:40px;height:50px;background:#333;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;">👗</div>'}
+                <div>
+                  <div style="font-size:0.8rem;font-weight:500;">${a.nom}</div>
+                  <div style="font-size:0.72rem;color:#c9a84c;">x${a.qty} — ${Number(a.prix).toLocaleString('fr-FR')} FCFA</div>
+                </div>
+              </div>`).join('')
+          : `<span style="color:#888;font-size:0.82rem;">${d.produit || '—'}</span>`;
+
+        // Total
+        const totalCmd = d.total ? Number(d.total).toLocaleString('fr-FR') + ' FCFA' : '—';
+
         tbody.innerHTML += `
           <tr>
-            <td><strong>${d.nom || '—'}</strong></td>
-            <td>${d.produit || '—'}</td>
-            <td>${d.contact || d.telephone || '—'}</td>
-            <td>${date}</td>
+            <td>
+              <strong style="font-size:0.95rem;">${d.prenom || ''} ${d.nom || '—'}</strong><br/>
+              <span style="color:#c9a84c;font-size:0.8rem;">📞 ${d.contact || d.telephone || '—'}</span><br/>
+              <span style="color:#888;font-size:0.75rem;">🏠 ${d.adresse || '—'}</span>
+              ${d.note ? `<br/><span style="color:#aaa;font-size:0.72rem;font-style:italic;">📝 ${d.note}</span>` : ''}
+            </td>
+            <td style="min-width:200px;">${photosHtml}</td>
+            <td style="color:#c9a84c;font-weight:700;font-size:0.95rem;">${totalCmd}</td>
+            <td style="font-size:0.78rem;color:#888;">${date}</td>
             <td>${badge}</td>
             <td>
               <button class="btn-sm" onclick="changerStatut('${doc.id}','traite')">✓ Traité</button>
